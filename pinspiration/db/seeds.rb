@@ -26,7 +26,7 @@ pin_data.each_pair do |board_key, pins|
     Pin.create!({
       title:        pin[:title],
       img_url:      pin[:img_url],
-      # board:        current_board,
+      board:        current_board,
     })
   end
 end
