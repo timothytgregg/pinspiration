@@ -8,6 +8,17 @@
   <%= @board.description %>
 </p>
 
+<% @pins.each do | pin | %>
+  <div class="pin">
+    <p>
+      <%= link_to pin.title, board_pin_path(@board.id, pin) %>
+    </p>
+    <p>
+      <%= image_tag pin.img_url %>
+    </p>
+  </div>
+<% end %>
+
 <br>
 
 <%= link_to 'Back', boards_path %>
