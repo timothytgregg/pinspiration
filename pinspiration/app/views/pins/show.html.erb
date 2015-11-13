@@ -1,0 +1,14 @@
+<p>
+  <strong>Title:</strong>
+  <%= @pin.title %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+</p>
+
+<%= image_tag @pin.img_url %>
+<br>
+
+<%= link_to 'Back', pins_path %>
+<%= link_to 'Edit', edit_pin_path(@pin) %>
