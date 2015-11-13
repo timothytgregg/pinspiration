@@ -9,7 +9,6 @@
 <body>
 
   <nav>
-      <a href="/pins">pins</a>
 
       <div class="user-info">
         <% if current_user %>
@@ -22,6 +21,8 @@
       </div>
     </nav>
 
+      <%= link_to "Pins", pins_path %>
+      
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
 <%= yield %>
