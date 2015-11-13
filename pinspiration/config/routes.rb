@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     resources :pins
   end
 
+  resources :pins
+
   resources :tags
 
   # The priority is based upon order of creation: first created -> highest priority.
