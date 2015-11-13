@@ -3,12 +3,18 @@
   <%= @pin.title %>
 </p>
 
+<br>
+<%= link_to "Add Tag", new_tag_path %>
+<br>
+
 <p>
   <strong>Image:</strong>
 </p>
 
 <%= image_tag @pin.img_url %>
+
 <br>
+
 <div class="tag">
   <p>
     #<%= Reference.first.tag.category %>

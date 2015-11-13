@@ -1,0 +1,12 @@
+<%= form_for :tag, url: tags_path do |f| %>
+
+  <p>
+    <%= f.label :category %><br>
+    <%= f.text_field :category %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+
+<% end %>
