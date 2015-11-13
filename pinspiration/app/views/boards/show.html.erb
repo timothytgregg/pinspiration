@@ -1,0 +1,14 @@
+<p>
+  <strong>Name:</strong>
+  <%= @board.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @board.description %>
+</p>
+
+<br>
+
+<%= link_to 'Back', boards_path %>
+<%= link_to 'Edit', edit_board_path(@board) %>
