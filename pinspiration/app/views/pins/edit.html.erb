@@ -1,6 +1,6 @@
 <h1>Editing PIn</h1>
 
-<%= form_for :pin, url: pin_path(@pin), method: :patch do |f| %>
+<%= form_for :pin, url: board_pin_path(@board.id, @pin), method: :patch do |f| %>
 
   <p>
     <%= f.label :title %><br>
@@ -18,6 +18,6 @@
 
 <% end %>
 
-<%= link_to 'Back', pins_path %>
+<%= link_to 'Back', board_pins_path %>
 
-<%= link_to 'Delete!', pin_path(@pin), method: :delete, class: 'delete' %>
+<%= link_to 'Delete!', board_pin_path(@board.id,@pin), method: :delete, class: 'delete' %>

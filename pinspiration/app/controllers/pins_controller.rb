@@ -16,14 +16,16 @@ class PinsController < ApplicationController
 
   def edit
     @pin=Pin.find(params[:id])
+    @board = Board.find(params[:board_id])
   end
 
   def create
     @user = current_user
     @pin = @user.pins.new(pin_params)
+    @board = Board.find(params[:board_id])
 
     if @pin.save
-      redirect_to @pin
+      redirect_to board_pin_path(@board.id,@pin)
     else
       render 'new'
     end
@@ -31,10 +33,12 @@ class PinsController < ApplicationController
   end
 
   def update
+    @board = Board.find(params[:board_id])
     @pin = Pin.find(params[:id])
+    binding.pry
 
     if @pin.update(pin_params)
-      redirect_to @pin
+      redirect_to board_pin_path
     else
       render 'edit'
     end
@@ -44,7 +48,7 @@ class PinsController < ApplicationController
   def destroy
     @pin = Pin.find(params[:id])
     @pin.destroy
-    redirect_to pins_path
+    redirect_to board_pins_path
   end
 
   private
