@@ -1,16 +1,18 @@
 <h1>pins</h1>
 
-<%= link_to 'Create New Pin', new_pin_path %>
+<%= link_to 'Create New Pin', new_board_pin_path(@board.id) %>
 
 <% @pins.each do | pin | %>
 
   <div class="pin">
 
     <p>
-      <%= link_to pin.title , pin %>
+      <%= link_to pin.title, board_pin_path(@board.id, pin) %>
     </p>
 
-    <img src="<%= pin.img_url %>" alt="<%= pin.img_url %>" />
+    <p>
+      <%= image_tag pin.img_url %>
+    </p>
 
   </div>
 

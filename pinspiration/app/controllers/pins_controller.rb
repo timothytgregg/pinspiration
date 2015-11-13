@@ -1,11 +1,13 @@
 class PinsController < ApplicationController
 
   def index
-    @pins=Pin.all
+    @board = Board.find(params[:board_id])
+    @pins = Pin.all.where(board_id:@board.id)
   end
 
   def show
     @pin=Pin.find(params[:id])
+    @board = Board.find(params[:board_id])
   end
 
   def new
