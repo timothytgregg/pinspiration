@@ -6,17 +6,27 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Pin.destroy_all
-pin_data = #{"FirstPin"=>[{:title=>"FirstPinTitle", :img_url=>"http://nyulocal.com/wp-content/uploads/2013/10/The-plane-flying-at-sunset-airliner-photography_1920x1080.jpg"},
-  #{:title=>"Heads Will Roll", :album=>"It's Blitz! (Deluxe Edition)", :preview_link=>"http://a308.phobos.apple.com/us/r10
-  [{:title=>"FirstPinTitle",
-    :img_url=>"http://nyulocal.com/wp-content/uploads/2013/10/The-plane-flying-at-sunset-airliner-photography_1920x1080.jpg"},
-    {:title=>"SecondPintTitle",
-    :img_url=>"http://pad1.whstatic.com/images/thumb/f/f0/Draw-a-Shark-Step-8-Version-3.jpg/670px-Draw-a-Shark-Step-8-Version-3.jpg"}]
+require_relative './pin_data.rb'
+require_relative './board_data.rb'
 
-pin_data.each do |pin|
-  Pin.create!({
-    title:        pin[:title],
-    img_url:      pin[:img_url],
+Pin.destroy_all
+Board.destroy_all
+
+board_data = get_board_data()
+pin_data = get_pin_data()
+
+pin_data.each_pair do |board_key, pins|
+  info = board_data[board_key]
+  current_board = Board.create!({
+    name:             info[:name],
+    description:      info[:description],
   })
+
+  pins.each do |pin|
+    Pin.create!({
+      title:        pin[:title],
+      img_url:      pin[:img_url],
+      board:        current_board,
+    })
+  end
 end
