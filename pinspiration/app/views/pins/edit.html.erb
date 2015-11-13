@@ -1,0 +1,23 @@
+<h1>Editing PIn</h1>
+
+<%= form_for :pin, url: pin_path(@pin), method: :patch do |f| %>
+
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+
+  <p>
+    <%= f.label :img_url %><br>
+    <%= f.text_area :img_url %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+
+<% end %>
+
+<%= link_to 'Back', pins_path %>
+
+<%= link_to 'Delete!', pin_path(@pin), method: :delete, class: 'delete' %>
