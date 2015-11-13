@@ -9,7 +9,7 @@
 require_relative './pin_data.rb'
 require_relative './board_data.rb'
 
-Pin.destroy_all
+#Pin.destroy_all
 Board.destroy_all
 
 board_data = get_board_data()
@@ -30,3 +30,14 @@ pin_data.each_pair do |board_key, pins|
     })
   end
 end
+
+tag1 = Tag.create!({category: "fun"})
+tag2 = Tag.create!({category: "fun"})
+tag3 = Tag.create!({category: "nice"})
+tag4 = Tag.create!({category: "hobbit"})
+tag5 = Tag.create!({category: "majestic"})
+
+binding.pry
+
+reference1 = Reference.create!(tag_id: Tag.find_by(category: "majestic").id, pin_id:
+Pin.find_by(title: "Second Swimmer").id)
