@@ -9,6 +9,11 @@
 
 <%= image_tag @pin.img_url %>
 <br>
+<div class="tag">
+  <p>
+    #<%= Reference.first.tag.category %>
+  </p>
+</div>
 
 <%= link_to 'Back', board_pins_path %>
 <%= link_to 'Edit', edit_board_pin_path(@board.id, @pin) %>
