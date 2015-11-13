@@ -1,0 +1,15 @@
+<h1>pins</h1>
+
+<% @pins.each do | pin | %>
+
+  <div class="pin">
+
+    <p>
+      <%= pin.title %>
+    </p>
+
+    <img src="<%= pin.img_url %>" alt="<%= pin.img_url %>" />
+
+  </div>
+
+<% end %>
