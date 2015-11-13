@@ -20,9 +20,9 @@ class PinsController < ApplicationController
   end
 
   def create
-    @user = current_user
-    @pin = @user.pins.new(pin_params)
     @board = Board.find(params[:board_id])
+    @pin = @board.pins.new(pin_params)
+    binding.pry
 
     if @pin.save
       redirect_to board_pin_path(@board.id,@pin)
@@ -35,7 +35,6 @@ class PinsController < ApplicationController
   def update
     @board = Board.find(params[:board_id])
     @pin = Pin.find(params[:id])
-    binding.pry
 
     if @pin.update(pin_params)
       redirect_to board_pin_path
